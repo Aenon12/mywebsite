@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Valentine's Day Flip Book</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div id="headlinecontainer">
+    <div id="shine">Happy Valentine's Day 💞</div>
+  </div>
+ 
+ 
+  <!-- Gallery: Stacked images with animation -->
+  <div class="gallery">
+    <img src="images/WhatsApp Image 2025-02-13 at 1.05.25 PM.jpeg" alt="Image 1">
+    <img src="images/WhatsApp Image 2025-02-13 at 1.05.26 PM (1).jpeg" alt="Image 2">
+    <img src="images/WhatsApp Image 2025-02-13 at 1.05.26 PM.jpeg" alt="Image 3">
+    <img src="images/WhatsApp Image 2025-02-13 at 1.05.27 PM (1).jpeg" alt="Image 4">
+    <img src="images/WhatsApp Image 2025-02-13 at 1.05.27 PM.jpeg" alt="Image 5">
+  </div>
+
+ <!-- Love Message Section -->
+<div class="message-container">
+    <h2>To My Sanu 💖</h2>
+    <p id="love-message"></p>
+</div>
+
+<!-- Final Message outside the container -->
+<p id="love-message-end">I love you so so muchhh, My Sanuuuu! 💕</p>
+
+
+
+<script>
+    const message = "I just want you to know how much I love you. Every day, I feel so lucky to have you in my life. From the moment we met, I knew there was something special about you, and as time goes on, I realize just how deeply I care for you. You make me feel so happy, and I’m always excited to spend time with you. Your smile, your laugh, and the way you make me feel so loved mean the world to me. I love how you support me no matter what, and how you always know how to make me feel better even when I’m feeling down. When we’re together, it feels like nothing else matters, and I forget about all my worries. You’re not just my girlfriend; you’re my best friend and my greatest comfort. I promise to love you more and more each day, and to always be there for you through everything. You’ve brought so much joy and light into my life, and I can’t imagine a future without you by my side. I love you more than words can say, and I’m so thankful for you, Sanu.❤️";  
+    let index = 0;
+    
+    function typeEffect() {
+        if (index < message.length) {
+            document.getElementById("love-message").innerHTML += message.charAt(index);
+            index++;
+            setTimeout(typeEffect, 50); // Adjust typing speed
+        }
+    }
+
+    window.onload = typeEffect;
+</script>
+
+
+  
+  
+</body>
+</html>

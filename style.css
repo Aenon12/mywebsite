@@ -1,0 +1,204 @@
+.gallery {
+    --d: 10s;
+    /* duration */
+    display: grid;
+    place-items: center; /* Center both horizontally and vertically */
+    width: 220px;
+    margin-left: 220px;
+}
+
+.gallery > img {
+    grid-area: 1/1;
+    width: 100%;
+    aspect-ratio: 1;
+    object-fit: cover;
+    border: 10px solid #f2f2f2;
+    box-shadow: 0 0 4px #0007;
+    z-index: 2;
+    animation: slide var(--d) infinite, z-order var(--d) infinite steps(1);
+}
+
+.gallery img:last-child {
+    animation-name: slide, z-order-last;
+}
+
+.gallery > img:nth-child(1) {
+    animation-delay: calc(0*var(--d));
+    --r: 16deg;
+}
+
+.gallery > img:nth-child(2) {
+    animation-delay: calc(-0.2*var(--d));
+    --r: -1deg;
+}
+
+.gallery > img:nth-child(3) {
+    animation-delay: calc(-0.4*var(--d));
+    --r: -19deg;
+}
+
+.gallery > img:nth-child(4) {
+    animation-delay: calc(-0.6*var(--d));
+    --r: 6deg;
+}
+
+.gallery > img:nth-child(5) {
+    animation-delay: calc(-0.8*var(--d));
+    --r: -8deg;
+}
+
+@keyframes slide {
+    10% {
+        transform: translateX(120%) rotate(var(--r));
+    }
+    0%, 100%, 20% {
+        transform: translateX(0%) rotate(var(--r));
+    }
+}
+
+@keyframes z-order {
+    10%, 20% {
+        z-index: 1;
+    }
+    80% {
+        z-index: 2;
+    }
+}
+
+@keyframes z-order-last {
+    10%, 20% {
+        z-index: 1;
+    }
+    90% {
+        z-index: 2;
+    }
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    display: grid;
+    place-content: center;
+    background: #f8f6f1;
+    overflow: hidden;
+}
+
+/* Fixed incorrect ID name */
+#headlinecontainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    margin-bottom: 60px;
+}
+
+/* Fixed background-size */
+#shine {
+    font-size: 60px;
+    font-weight: bold;
+    color: rgba(255, 0, 102, 0.3);
+    z-index: 10;
+    background: -webkit-gradient(linear, left top, right top, from(#222), to(#222), color-stop(0.5, #fff)) 0 0 no-repeat;
+    -webkit-background-size: 150px 100%; /* Fixed */
+    -webkit-background-clip: text;
+    -webkit-animation-name: shine;
+    -webkit-animation-duration: 3s; /* Adjust the duration as needed */
+    -webkit-animation-iteration-count: infinite;
+    text-shadow: 0 0px 0px rgba(233, 85, 189, 0.419);
+}
+
+@-webkit-keyframes shine {
+    0%, 10% {
+        background-position: -1000px;
+    }
+    20% {
+        background-position: top left;
+    }
+    90% {
+        background-position: top right;
+    }
+    100% {
+        background-position: 1000px;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    #shine {
+        font-size: 22px;
+    }
+
+    /* Fixed incorrect ID name in mobile styles */
+    #headlinecontainer {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 60px;
+    }
+
+    .gallery {
+        --d: 10s;
+        /* duration */
+        display: grid;
+        place-items: center; /* Center both horizontally and vertically */
+        width: 150px;
+        margin-left: 60px;
+    }
+}
+
+/* Message Container - Positioned Higher & Aligned to the Left */
+.message-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Aligns text to the left */
+    text-align: left;
+    width: 60%;
+    max-width: 600px;
+    margin: 150px 0 0 50px; /* Moves the message up slightly */
+    background: rgba(255, 182, 193, 0.2); /* Light pink background */
+    padding: 20px;
+    border-radius: 10px;
+    font-family: "Arial", sans-serif; /* Change font to Arial */
+    font-size: 20px;
+    font-weight: bold;
+    color: black; /* Change text color to black */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    overflow: auto; /* Allow scrolling within the container */
+}
+
+/* Heading Styling */
+.message-container h2 {
+    font-size: 28px;
+    color: #ff007f;
+    margin-bottom: 10px;
+}
+
+/* Typing Effect */
+#love-message::after {
+    content: "|";
+    display: inline-block;
+    animation: blink 0.6s infinite;
+}
+
+@keyframes blink {
+    50% {
+        opacity: 0;
+    }
+}
+
+/* Ensure body content is scrollable */
+body {
+    overflow: auto; /* Enable scrolling for the entire page */
+}
+
+
+
+/* "I love you so much" message outside the container */
+#love-message-end {
+    font-size: 24px;
+    color: #d63384;
+    margin-top: 20px;
+    font-weight: bold;
+    margin-left: 50px; /* Align to the left */
+    position: relative;
+    top: 30px; /* Slightly moves it lower for better positioning */
+}
